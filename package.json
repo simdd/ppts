@@ -1,0 +1,19 @@
+{
+  "name": "ppts",
+  "version": "1.0.0",
+  "description": "web 版本的 ppt 演示工具，采用 markdown 的语法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simdd/ppts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simdd/ppts/issues"
+  },
+  "homepage": "https://github.com/simdd/ppts#readme"
+}
