@@ -1,3 +1,13 @@
+# {
+#     title: '这里是名字',
+#     author: 'simdd',
+#     date: '2019/02/10',
+#     pages: [
+#         'page1',
+#         'page2'
+#     ]
+# }
+
 --cover--
 title: 这里是名字
 author: simdd
