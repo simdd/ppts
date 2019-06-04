@@ -16,10 +16,7 @@ page2
 --page--
 '''
 
-info = re.search("--cover--([\\w\\W]*)--cover--", text)
-pages = re.findall("--page--([\\w\\W]*)--page--", text)
+info = re.search(r"--cover--(.*?)--cover--", text, re.S)
 
-print(info)
 
-for x in pages:
-    print(x)
+print(info.group(0))
