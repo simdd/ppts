@@ -1,22 +1,21 @@
 import re
+import os
+import readline
 
-text = '''
---cover--
-title: 这里是名字
-author: simdd
-date: 2019/02/10
---cover--
+with open('demo.ppts', 'r') as file:
+    text = file.read()
 
---page--
-page1
---page--
+reCover = r"--cover--(.*)--cover--"
+rePages = r"--page--(.*)--page--"
+reTitle = r"title:\s*([^\n\r]*)\n"
+reAuthor = r"author:\s*([^\n\r]*)\n"
+reDate = r"date:\s*([^\n\r]*)\n"
 
---page--
-page2
---page--
-'''
+cover = re.search(reCover, text, re.S).group(1)
+title = re.search(reTitle, cover, re.S).group(1)
+author = re.search(reAuthor, cover, re.S).group(1)
+date = re.search(reDate, cover, re.S).group(1)
 
-info = re.search(r"--cover--(.*?)--cover--", text, re.S)
-
-
-print(info.group(0))
+print(title)
+print(author)
+print(date)
