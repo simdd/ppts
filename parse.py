@@ -1,10 +1,7 @@
 import re
 
-with open('demo.ppts', 'r') as file:
-    text = file.read()
 
-
-def parseInfo():
+def parseUser(text):
     reCover = r"--cover--(.*)--cover--"
     reTitle = r"title:\s*([^\n\r]*)\n"
     reAuthor = r"author:\s*([^\n\r]*)\n"
@@ -15,9 +12,4 @@ def parseInfo():
     author = re.search(reAuthor, cover, re.S).group(1)
     date = re.search(reDate, cover, re.S).group(1)
 
-    return {title, author, date}
-
-
-userinfo = parseInfo()
-
-print(userinfo)
+    return {title: title, author: author, date: date}
