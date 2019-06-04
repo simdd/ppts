@@ -13,3 +13,7 @@ def parseUser(text):
     date = re.search(reDate, cover, re.S).group(1)
 
     return {'title': title, 'author': author, 'date': date}
+
+
+def parsePages(text):
+    return ''
