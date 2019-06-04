@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 from parse import parseUser
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ userinfo = parseUser(text)
 
 @app.route("/")
 def user():
-    return str(userinfo)
+    return jsonify(userinfo)
 
 
 if __name__ == "__main__":
