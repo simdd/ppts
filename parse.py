@@ -16,4 +16,8 @@ def parseUser(text):
 
 
 def parsePages(text):
-    return ''
+    rePages = r"--page--(.*)--page--"
+    pages = re.search(rePages, text, re.S).group(1)
+    pages = pages.split('--s--')
+    print(pages)
+    return pages
