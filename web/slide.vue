@@ -6,6 +6,7 @@
       <p class="label">{{user.date}}</p>
     </section>
     <section v-else>{{slide[idx]}}</section>
+    
   </div>
 </template>
 
@@ -24,13 +25,20 @@ export default {
   },
 
   mounted() {
-    console.log(1);
     document.addEventListener("keydown", e => {
-      if (e.keyCode === 32) {
+      if (e.keyCode === 32 || e.keyCode === 39) {
         if (this.idx >= this.slide.length - 1) {
           this.idx = -1;
         } else {
           this.idx = this.idx + 1;
+        }
+      }
+
+      if (e.keyCode === 37) {
+        if (this.idx === -1) {
+          this.idx = -1;
+        } else {
+          this.idx = this.idx - 1;
         }
       }
     });
