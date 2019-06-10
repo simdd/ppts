@@ -1,9 +1,13 @@
+import os
 from flask import Flask
 from flask import jsonify
 from parse import parseUser, parsePages
-app = Flask(__name__)
 
-with open('demo.ppts', 'r') as file:
+app = Flask(__name__)
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'demo.ppts')
+
+with open(filename, 'r') as file:
     text = file.read()
 
 userinfo = parseUser(text)

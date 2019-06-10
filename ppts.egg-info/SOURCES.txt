@@ -1,3 +1,4 @@
+setup.cfg
 setup.py
 cli/bin.py
 ppts.egg-info/PKG-INFO
