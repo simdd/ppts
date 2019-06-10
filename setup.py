@@ -12,9 +12,5 @@ setup(
         'console_scripts': [
             'ppts = cli:main',
         ]
-    },
-    package_data={
-        'ppts.web': ['*'],
-    },
-    include_package_data=True
+    }
 )
