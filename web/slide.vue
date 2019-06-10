@@ -10,20 +10,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       idx: -1,
-      user: {
-        title: "这里是名字",
-        author: "simdd",
-        date: "2019/02/10"
-      },
-      slide: ["page1", "page2"]
+      user: {},
+      slide: []
     };
   },
 
+  methods: {
+    getUser() {
+      axios.get("http://0.0.0.0:7337/user").then(({ data }) => {
+        this.user = data;
+      });
+    },
+
+    getSlide() {
+      axios.get("http://0.0.0.0:7337/page").then(({ data }) => {
+        this.slide = data;
+      });
+    }
+  },
+
   mounted() {
+    this.getUser();
+    this.getSlide();
+
     document.addEventListener("keydown", e => {
       if (e.keyCode === 32 || e.keyCode === 39) {
         if (this.idx >= this.slide.length - 1) {
@@ -44,7 +59,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-@import url("./global.less");
-</style>

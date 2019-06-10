@@ -1,10 +1,12 @@
 import os
 import re
 import sys
+import threading
 import subprocess
+from flask_cors import CORS
 from flask import Flask, jsonify
 
-app = Flask(__name__)
+# parse file
 filename = os.path.abspath(sys.argv[1])
 
 with open(filename, 'r') as file:
@@ -28,7 +30,7 @@ def parseUser(text):
 def parsePages(text):
     rePages = r"--page--(.*)--page--"
     pages = re.search(rePages, text, re.S).group(1)
-    pages = pages.split('--s--')
+    pages = pages.split('\n~\n')
     print(pages)
     return pages
 
@@ -37,9 +39,18 @@ userinfo = parseUser(text)
 pages = parsePages(text)
 
 
-@app.route("/")
+app = Flask(__name__)
+CORS(app)
+
+
+@app.route("/page")
+def page():
+    return jsonify(pages)
+
+
+@app.route("/user")
 def user():
-    return str(pages)
+    return jsonify(userinfo)
 
 
 def startWeb():
@@ -47,10 +58,11 @@ def startWeb():
 
 
 def main():
-    app.run()
-    startWeb()
+    t = threading.Thread(target=startWeb)
+    t.daemon = True
+    t.start()
+    app.run(host='0.0.0.0', port=7337)
 
 
 if __name__ == "__main__":
     main()
-    startWeb()
