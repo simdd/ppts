@@ -54,7 +54,9 @@ def user():
 
 
 def startWeb():
-    subprocess.call(["yarn", "start"])
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, 'web/index.html')
+    subprocess.call(["parcel", filename])
 
 
 def main():
