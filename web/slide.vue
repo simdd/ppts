@@ -1,12 +1,11 @@
 <template>
-  <div class="page">
-    <section v-if="idx < 0">
-      <p class="label">{{user.title}}</p>
-      <p class="label">{{user.author}}</p>
-      <p class="label">{{user.date}}</p>
+  <div class="row-center cover">
+    <section class="column-center fw600" v-if="idx < 0">
+      <p class="fs50">{{user.title}}</p>
+      <p class="fs24 pt50">{{user.author}}</p>
+      <p class="fs24 pt30">{{user.date}}</p>
     </section>
-    <section v-else>{{slide[idx]}}</section>
-    
+    <section class="slide" v-else>{{slide[idx]}}</section>
   </div>
 </template>
 
@@ -46,24 +45,6 @@ export default {
 };
 </script>
 
-<style>
-* {
-  padding: 0;
-  margin: 0;
-}
-</style>
-
-<style lang="less" scoped>
-.page {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .label {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-}
+<style lang="less">
+@import url("./global.less");
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <div id="a">
-    <v-slide></v-slide>
-  </div>
+  <v-slide></v-slide>
 </template>
 
 <script>
