@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ppts',
-    version='1.0.22',
+    version='1.0.25',
     description='ppt with web',
     author='simdd',
     author_email='dev.simdd@gmail.com',
@@ -12,5 +12,8 @@ setup(
         'console_scripts': [
             'ppts = bin:main',
         ]
+    },
+    package_data={
+        'ppts': ['web/*'],
     }
 )

@@ -56,6 +56,10 @@ def user():
 def startWeb():
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, 'web/index.html')
+    print('------------s')
+    print(filename)
+    print(sys.exec_prefix)
+    print('------------e')
     subprocess.call(["parcel", filename])
 
 
