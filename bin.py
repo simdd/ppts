@@ -3,7 +3,7 @@ import sys
 import subprocess
 from flask import Flask
 from flask import jsonify
-from .parse import parseUser, parsePages
+from parse import parseUser, parsePages
 
 app = Flask(__name__)
 filename = os.path.abspath(sys.argv[1])
@@ -26,6 +26,7 @@ def startWeb():
 
 def main():
     app.run()
+    startWeb()
 
 
 if __name__ == "__main__":
