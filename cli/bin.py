@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask import jsonify
-from parse import parseUser, parsePages
+from .parse import parseUser, parsePages
 
 app = Flask(__name__)
 dirname = os.path.dirname(__file__)
