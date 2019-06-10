@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 from flask import Flask
 from flask import jsonify
 from .parse import parseUser, parsePages
@@ -19,9 +20,14 @@ def user():
     return str(pages)
 
 
+def startWeb():
+    subprocess.call(["yarn", "start"])
+
+
 def main():
     app.run()
 
 
 if __name__ == "__main__":
     main()
+    startWeb()
